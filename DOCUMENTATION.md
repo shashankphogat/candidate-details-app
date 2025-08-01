@@ -74,68 +74,7 @@ Application Layer
 
 ## 🚧 Challenges Faced & Solutions
 
-### 1. Framework Migration Challenge
-
-**Challenge**: Initial development started with Next.js but requirements changed to pure React with Vite.
-
-**Problem Details:**
-- Next.js-specific imports and file structure
-- Server-side rendering considerations
-- Different build and development workflows
-
-**Solution Implemented:**
-\`\`\`typescript
-// Before (Next.js)
-import { useSelector } from "react-redux"
-import type { RootState } from "@/store/store"
-
-// After (Vite + React)
-import { useSelector } from "react-redux"
-import type { RootState } from "@/store/store"
-// Updated path aliases in vite.config.ts
-\`\`\`
-
-**Key Changes:**
-- Migrated from Next.js App Router to standard React Router patterns
-- Updated build configuration from `next.config.js` to `vite.config.ts`
-- Removed server-side specific code and hooks
-- Updated import paths and aliases
-
-### 2. Redux Integration Issues
-
-**Challenge**: Redux store not properly connected, causing "Cannot read properties of undefined" errors.
-
-**Problem Details:**
-- Store provider not wrapping the entire application
-- Incorrect import paths after framework migration
-- Type definitions not properly exported
-
-**Solution Implemented:**
-\`\`\`typescript
-// main.tsx - Proper Provider setup
-import { Provider } from "react-redux"
-import { store } from "./store/store"
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-)
-
-// store/store.ts - Proper type exports
-export const store = configureStore({
-  reducer: {
-    candidate: candidateReducer,
-  },
-})
-
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-\`\`\`
-
-### 3. Responsive Design Complexity
+### 1. Responsive Design Complexity
 
 **Challenge**: Creating a responsive layout that works across desktop, tablet, and mobile while maintaining the exact wireframe design.
 
@@ -183,7 +122,7 @@ export type AppDispatch = typeof store.dispatch
 - **Breakpoint strategy**: 768px (mobile), 992px (tablet), 1200px (desktop)
 - **Touch optimization**: Larger touch targets, appropriate spacing
 
-### 4. Image Loading Issues
+### 2. Image Loading Issues
 
 **Challenge**: Profile images not loading consistently, showing broken image placeholders.
 
@@ -203,7 +142,7 @@ const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
 }
 \`\`\`
 
-### 5. TypeScript Configuration Challenges
+### 3. TypeScript Configuration Challenges
 
 **Challenge**: Proper TypeScript configuration for Vite with path aliases and strict type checking.
 
