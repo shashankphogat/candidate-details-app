@@ -2,7 +2,8 @@
 
 A modern, responsive candidate management interface built with React, Redux, TypeScript, and Vite. This application provides a comprehensive view of candidate information with editing capabilities, job assignments, and notes management.
 
-![Candidate Details App](https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop)
+<img width="1917" height="1012" alt="image" src="https://github.com/user-attachments/assets/84a10776-501d-47ff-ab79-c270fe075da7" />
+
 
 ## 🚀 Features
 
